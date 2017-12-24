@@ -243,6 +243,16 @@ describe('Unit:GhostInstance', function () {
 			});
 		});
 
+		it('doesn\'t try to continue if login fails', function () {
+			tm.login = sinon.stub().rejects();
+			tm.accessToken = null;
+
+			tm.destruct().then(() => {
+				expect(tm.login.calledOnce).to.be.true;
+				expect(stubs.destroy.called).to.be.false;
+			});
+		});
+
 		it('handles server errors', function () {
 			const destroyStub = sinon.stub().rejects('SERVER_ERR');
 			const unsetStub = sinon.stub();
