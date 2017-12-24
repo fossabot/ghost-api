@@ -1,0 +1,14 @@
+{
+	"INVALID_USER": "ERR: Username doesn't work",
+	"INVALID_PASS": "ERR: Password doesn't work",
+	"INVALID_URL":  "ERR: URL doesn't work",
+	"INVALID_CLIENT": "ERR: Client doesn't work",
+	"INVALID_SECRET": "ERR: Secret doesn't work",
+	"INVALID_TOKEN" : "ERR: Unable to retrieve valid token",
+	"SUGGEST_SSL": "We highly recommend you access the API over SSL for {url}",
+	"SERVER_ERR": "ERR: Server error",
+	"SERVER_DED": "ERR: Server refused to connect",
+	"POST_ERR": "ERR: Bad POST request to API",
+	"BAD_GHOST_INSTANCE": "ERR: [TokenManager] Bad Ghost Instance provided",
+	"NO_TRANSLATION": "An error occurred, but the translation doesn't exist:"
+}
