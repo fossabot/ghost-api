@@ -47,10 +47,16 @@ const instance = new GhostInstance(options)
 The GhostInstance constructor takes an optional object paramater. This parameter should provide 5 key details:
 
 **url** - The HTTP URL of the Ghost Instance
+
 **username** = **user** (user takes precedence) - The email address of the account to login to {url}
+
 **password** = **pass** (pass takes precedence) - The password of the account to login to {url}
+
 **client** - Client ID used to access the API. Found in the `clients` table of a working Ghost instance
+
 **secret** - Client Secret used to access the API. Found in the `clients` table of a working Ghost instance and corresponds to Client ID
+
+<br />
 
 Without these 5 keys, any instance is functionally useless. You can modify any of these values via object assignment (`instance[key] = 'new_value'`).
 
