@@ -1,8 +1,8 @@
 # Ghost-API
 
-[![Build Status](https://travis-ci.org/HexRdesign/ghost-api.svg?branch=master)](https://travis-ci.org/HexRdesign/ghost-api)
-[![Coverage Status](https://coveralls.io/repos/github/HexRdesign/ghost-api/badge.svg?branch=master)](https://coveralls.io/github/HexRdesign/ghost-api?branch=master)
-[![dependencies Status](https://david-dm.org/HexRdesign/ghost-api/status.svg)](https://david-dm.org/HexRdesign/ghost-api)
+[![Build Status](https://travis-ci.org/HexRweb/ghost-api.svg?branch=master)](https://travis-ci.org/HexRweb/ghost-api)
+[![Coverage Status](https://coveralls.io/repos/github/HexRweb/ghost-api/badge.svg?branch=master)](https://coveralls.io/github/HexRweb/ghost-api?branch=master)
+[![dependencies Status](https://david-dm.org/HexRweb/ghost-api/status.svg)](https://david-dm.org/HexRweb/ghost-api)
 
 ## Introduction
 
@@ -14,8 +14,10 @@ Ghost-API is a server-side wrapper for the v0.1 API of the popular blogging plat
  - [Usage](#usage)
  - [Instance API](#instance-api)
  - [TokenManager API](#tokenmanager-api)
+ - [Issues](#issues)
  - [Contributing](#contributing)
  - [Thanks](#thanks)
+ - [License](#license)
 
 ## Installation
 
@@ -23,7 +25,7 @@ Ghost-API is *not* available on NPM because 1) we want to adhere to [Ghost Trade
 
 ## Usage
 
-As of now, Ghost-API is only capable of token-related tasks. More functionality will be added in the future, on an as-needed basis.
+As of now, Ghost-API is only capable of token-related tasks. More functionality will be added in the future, on an as-needed basis. Ghost-API will follow Ghost node version guidelines starting in April. There is currently support for Node v6 & v8
 
 Requiring the Ghost-API will expose a GhostInstance class. This gives you the ability to easily keep track of multiple Ghost instances that are using the API. To create a GhostInstance,
 
@@ -124,6 +126,10 @@ Alias of `this.instance.urlFor(e)`
 
 Ensures the access token is still valid
 
+## Issues
+
+Got an issue? Question? Comment? Concern? Feel free to [create an issue](https://github.com/HexRweb/ghost-api/issues). We'll try and help you out
+
 ## Contributing
 
 Want to make Ghost-API better? Great! You're appreciated :smile: Feel free to create a <abbr title='Pull Request'>PR</abbr> with your changes. Please make sure all tests pass (`npm test`), coverage stays high (we'd prefer 100% but it's understandable if that's not possible) and documentation stays useful and relevant.
@@ -134,4 +140,4 @@ This project wouldn't have been possible without the existence of the [Ghost Fou
 
 ## License
 
-This project, just like Ghost, is licensed under the [MIT License](https://github.com/hexrdesign/LICENSE)
+This project, just like Ghost, is licensed under the [MIT License](https://github.com/HexRweb/LICENSE)
