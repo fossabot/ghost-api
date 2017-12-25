@@ -24,7 +24,9 @@
     "standard-version": "^4.2.0"
   },
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=text-lcov > coverage/lcov.info",
+    "coverage-codeclimate": "codeclimate < coverage/lcov.info",
+    "coverage-coveralls": "coveralls < coverage/lcov.info",
     "lint": "eslint lib test",
     "release": "standard-version",
     "test:unit": "nyc --reporter=html --reporter=text mocha --recursive test/unit",
