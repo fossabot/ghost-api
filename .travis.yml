@@ -1,9 +1,5 @@
 language: node_js
 
-env:
-  global:
-    - CODECLIMATE_REPO_TOKEN=e730eec31746ee17ed282ab965a7ced6f724a7477a95586d6d4904ae252a3c93
-
 node_js:
   - "6"
   - "8"
