@@ -37,18 +37,6 @@ describe('Unit:Post', function () {
 		return post('google', {test: 'yes'});
 	});
 
-	it('converts string responses to JSON objects', function () {
-		const gotStub = sinon.stub().resolves('{"body": {"value": "test"}, "real": "yes"}');
-		const post = makeProxy({got: {post: gotStub}});
-		return post('google', {test: 'yes'}).then((res) => {
-			expect(res).to.be.ok;
-			expect(res.value).to.equal('test');
-			expect(res.___ResponseObject).to.exist;
-			expect(res.___ResponseObject.real).to.equal('yes');
-			expect(res.___ResponseObject.body.value).to.equal(res.value);
-		});
-	});
-
 	it('passes original response object', function () {
 		const gotStub = sinon.stub().resolves({body: {value: 'test'}, real: 'yes'});
 		const post = makeProxy({got: {post: gotStub}});
