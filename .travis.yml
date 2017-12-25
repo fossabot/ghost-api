@@ -1,5 +1,9 @@
 language: node_js
 
+env:
+  global:
+    - CODECLIMATE_REPO_TOKEN=e730eec31746ee17ed282ab965a7ced6f724a7477a95586d6d4904ae252a3c93
+
 node_js:
   - "6"
   - "8"
@@ -22,4 +26,4 @@ script:
   - if [ "$TEST_SUITE" == "lint" ]; then npm run lint; else npm run test:unit; fi
 
 after_success:
-  - if [[ "$TRAVIS_NODE_VERSION" == "6" && "$TEST_SUITE" != "lint" ]]; then npm run coverage; fi
+  - if [[ "$TRAVIS_NODE_VERSION" == "6" && "$TEST_SUITE" != "lint" ]]; then npm run coverage; npm run coverage-coveralls; npm run coverage-codeclimate; fi
