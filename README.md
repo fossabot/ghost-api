@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/HexRweb/ghost-api.svg?branch=master)](https://travis-ci.org/HexRweb/ghost-api)
 [![Coverage Status](https://coveralls.io/repos/github/HexRweb/ghost-api/badge.svg?branch=master)](https://coveralls.io/github/HexRweb/ghost-api?branch=master)
 [![dependencies Status](https://david-dm.org/HexRweb/ghost-api/status.svg)](https://david-dm.org/HexRweb/ghost-api)
+[![Maintainability](https://api.codeclimate.com/v1/badges/22530b1725bc84995ec4/maintainability)](https://codeclimate.com/github/HexRweb/ghost-api/maintainability)
 
 ## Introduction
 
