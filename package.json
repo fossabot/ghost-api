@@ -14,7 +14,6 @@
   ],
   "devDependencies": {
     "chai": "^4.1.2",
-		"codeclimate-test-reporter": "^0.5.0",
     "coveralls": "^3.0.0",
     "eslint": "^4.13.1",
     "has-ansi": "^3.0.0",
@@ -25,9 +24,7 @@
     "standard-version": "^4.2.0"
   },
   "scripts": {
-    "coverage": "nyc report --reporter=text-lcov > coverage/lcov.info",
-    "coverage-codeclimate": "codeclimate < coverage/lcov.info",
-    "coverage-coveralls": "coveralls < coverage/lcov.info",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint lib test",
     "release": "standard-version",
     "test:unit": "nyc --reporter=html --reporter=text mocha --recursive test/unit",
