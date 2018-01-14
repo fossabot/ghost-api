@@ -61,6 +61,7 @@ describe('Unit:Post', function () {
 
 	it('unable to connect error works', function () {
 		const err = new Error('0 means off');
+		err.name = 'RequestError';
 		err.code = 'ECONNREFUSED';
 		const gotStub = sinon.stub().rejects(err);
 		const post = makeProxy({got: {post: gotStub}});
@@ -72,21 +73,9 @@ describe('Unit:Post', function () {
 		});
 	});
 
-	it('server errors work', function () {
-		const err = new Error('This is why you CI');
-		err.statusCode = 505;
-		const gotStub = sinon.stub().rejects(err);
-		const post = makeProxy({got: {post: gotStub}});
-		return post('google', {test: 'yes'}).then(() => {
-			expect(false, 'Promise should have rejected').to.be.true;
-		}).catch((err) => {
-			expect(err).to.be.ok;
-			expect(err).to.equal('SERVER_ERR{505}');
-		});
-	});
-
-	it('server errors work', function () {
+	it('HTTPErrors work (4xx)', function () {
 		const err = new Error('Gaah typo!');
+		err.name = 'HTTPError';
 		err.statusCode = 404;
 		const gotStub = sinon.stub().rejects(err);
 		const post = makeProxy({got: {post: gotStub}});
@@ -98,8 +87,23 @@ describe('Unit:Post', function () {
 		});
 	});
 
+	it('HTTPErrors work (5xx)', function () {
+		const err = new Error('This is why you CI');
+		err.name = 'HTTPError';
+		err.statusCode = 505;
+		const gotStub = sinon.stub().rejects(err);
+		const post = makeProxy({got: {post: gotStub}});
+		return post('google', {test: 'yes'}).then(() => {
+			expect(false, 'Promise should have rejected').to.be.true;
+		}).catch((err) => {
+			expect(err).to.be.ok;
+			expect(err).to.equal('SERVER_ERR{505}');
+		});
+	});
+
 	it('knows a POST error when it sees one', function () {
 		const err = new Error('Glitch in the matrix');
+		err.name = 'HTTPError';
 		err.statusCode = 600;
 		const gotStub = sinon.stub().rejects(err);
 		const post = makeProxy({got: {post: gotStub}});
@@ -111,7 +115,20 @@ describe('Unit:Post', function () {
 		});
 	});
 
-	it('passes unknown errors through', function () {
+	it('passes unknown errors through (request)', function () {
+		const err = new Error('Internet died');
+		err.name = 'RequestError';
+		const gotStub = sinon.stub().rejects(err);
+		const post = makeProxy({got: {post: gotStub}});
+		return post('google', {test: 'yes'}).then(() => {
+			expect(false, 'Promise should have rejected').to.be.true;
+		}).catch((err) => {
+			expect(err).to.be.ok;
+			expect(err.message).to.equal('Internet died');
+		});
+	});
+
+	it('passes unknown errors through (generic)', function () {
 		const err = new Error('Server too hot');
 		const gotStub = sinon.stub().rejects(err);
 		const post = makeProxy({got: {post: gotStub}});
