@@ -26,7 +26,7 @@ function generatePostProxy(resolves = true) {
 	};
 }
 
-describe('Unit:GhostInstance', function () {
+describe('Unit:TokenManager', function () {
 	it('requires a ghost instance to construct', function () {
 		try {
 			/* eslint-disable no-unused-vars */

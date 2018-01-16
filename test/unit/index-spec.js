@@ -7,7 +7,7 @@ const proxyquire = require('proxyquire').noCallThru();
 const GhostInstance = require(modulePath);
 const TokenManager = require(`${modulePath}/token-manager`);
 
-describe('Unit:TokenManager', function () {
+describe('Unit:GhostInstance', function () {
 	it('empty constructor works', function () {
 		const instance = new GhostInstance();
 		expect(instance.token instanceof TokenManager).to.be.true;
@@ -70,6 +70,11 @@ describe('Unit:TokenManager', function () {
 		expect(instance.endpoint('token.destroy')).to.equal(expectedValue);
 	});
 
+	it('[endpoint] supports bad nested request', function () {
+		const instance = new GhostInstance();
+		expect(instance.endpoint('post')).to.deep.equal({});
+	});
+
 	it('[endpoint] can handle nonexistant calls', function () {
 		const instance = new GhostInstance();
 		const expectedValue = {};
@@ -81,6 +86,25 @@ describe('Unit:TokenManager', function () {
 		const response = instance.urlFor('token.create');
 		const url = 'https://ghost.test/ghost/api/v0.1/authentication/token';
 		expect(response).to.equal(url);
+	});
+
+	it('[urlFor] handles complex keys', function () {
+		const instance = new GhostInstance({url: 'https://ghost.test'});
+		const response = instance.urlFor('post.delete');
+		const url = 'https://ghost.test/ghost/api/v0.1/posts/{id}';
+		expect(decodeURIComponent(response)).to.equal(url);
+	});
+
+
+	it('[getAuthHeader] returns proper header', function () {
+		const instance = new GhostInstance({url: 'https://ghost.test'});
+		const tokenStub = sinon.stub().resolves('rANdOmLEtTerS')
+		instance.token.getToken = tokenStub;
+
+		return instance.getAuthHeader().then((response) => {
+			expect(tokenStub.calledOnce).to.be.true;
+			expect(response).to.equal('Bearer rANdOmLEtTerS');
+		});
 	});
 
 	it('[getToken] returns valid token', function () {
