@@ -26,7 +26,7 @@ Ghost-API is a server-side wrapper for the v0.1 API of the popular blogging plat
 Ghost-API is *not* available on NPM because 1) we want to adhere to [Ghost Trademark Policy](https://ghost.org/trademark) and 2) this package is not complete. That being said, it is still possible to install ghost-api as a dependency
 
 ```bash
-npm install https://github.com/HexRdesign/ghost-api.git --save
+npm install https://github.com/HexRweb/ghost-api.git --save
 ```
 
 ## Usage
