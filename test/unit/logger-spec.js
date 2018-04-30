@@ -10,7 +10,7 @@ describe('Unit:Logger', function () {
 	let sandbox, stdout, stderr;
 
 	beforeEach(function () {
-		sandbox = sinon.sandbox.create();
+		sandbox = sinon.createSandbox();
 		stdout = sandbox.stub(process.stdout,'write');
 		stderr = sandbox.stub(process.stderr,'write');
 	});
