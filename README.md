@@ -31,7 +31,7 @@ npm install https://github.com/HexRweb/ghost-api.git --save
 
 ## Usage
 
-As of now, Ghost-API is only capable of token-related tasks. More functionality will be added in the future, on an as-needed basis. Ghost-API will follow Ghost node version guidelines starting in April. There is currently support for Node v6 & v8
+As of now, Ghost-API is only capable of token-related tasks. More functionality will be added in the future, on an as-needed basis. Ghost-API follows Ghost node version guidelines; node v6 & v8 are currently supported.
 
 Requiring the Ghost-API will expose a GhostInstance class. This gives you the ability to easily keep track of multiple Ghost instances that are using the API. To create a GhostInstance,
 
