@@ -5,6 +5,7 @@
 [![dependencies Status](https://david-dm.org/HexRweb/ghost-api/status.svg)](https://david-dm.org/HexRweb/ghost-api)
 [![Maintainability](https://api.codeclimate.com/v1/badges/22530b1725bc84995ec4/maintainability)](https://codeclimate.com/github/HexRweb/ghost-api/maintainability)
 [![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/22530b1725bc84995ec4/test_coverage)](https://codeclimate.com/github/HexRweb/ghost-api/test_coverage)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvikaspotluri123%2Fghost-api.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvikaspotluri123%2Fghost-api?ref=badge_shield)
 
 ## Introduction
 
@@ -20,6 +21,9 @@ Ghost-API is a server-side wrapper for the v0.1 API of the popular blogging plat
  - [Contributing](#contributing)
  - [Thanks](#thanks)
  - [License](#license)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvikaspotluri123%2Fghost-api.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvikaspotluri123%2Fghost-api?ref=badge_large)
 
 ## Installation
 
